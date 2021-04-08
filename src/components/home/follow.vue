@@ -20,14 +20,14 @@
           cloud technologies inclu-ding its flagship sales and CRM...
         </div>
         <div class="bigPic">
-          <img src="../../assets/image/l.jpg" mode="aspectFit" />
+          <img src="../../assets/image/z.jpg" mode="aspectFit" />
         </div>
         <div class="twoPic">
           <div class="pic">
-            <img src="../../assets/image/l.jpg" mode="aspectFit" />
+            <img src="../../assets/image/z.jpg" mode="aspectFit" />
           </div>
           <div class="pic picRight">
-            <img src="../../assets/image/l.jpg" mode="aspectFit" />
+            <img src="../../assets/image/z.jpg" mode="aspectFit" />
           </div>
         </div>
       </div>
@@ -36,14 +36,14 @@
       <div class="title">其他动态</div>
       <div class="text_conter">
         <div class="bigPic">
-          <img src="../../assets/image/l.jpg" mode="aspectFit" />
+          <img src="../../assets/image/z.jpg" mode="aspectFit" />
         </div>
         <div class="text_3line">
           Salesforce is the Customer Success Platform.Its social and mobile
           cloud technologies inclu-ding its flagship sales and CRM...
         </div>
         <div class="bigPic">
-          <img src="../../assets/image/l.jpg" mode="aspectFit" />
+          <img src="../../assets/image/z.jpg" mode="aspectFit" />
         </div>
         <div class="text_3line">
           Salesforce is the Customer Success Platform.Its social and mobile

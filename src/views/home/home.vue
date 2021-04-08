@@ -75,7 +75,7 @@ export default {
       searchInput: "",
       linkList: [
         { textVal: "典型人物", path: "/personal" },
-        { textVal: "重点机构", path: "/" },
+        { textVal: "重点机构", path: "/organ" },
         { textVal: "军事基地", path: "/" },
         { textVal: "武器装备", path: "/" },
         { textVal: "战略政策", path: "/" },

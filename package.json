@@ -11,12 +11,8 @@
     "amfe-flexible": "^2.2.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.1",
-    "leaflet": "^1.7.1",
-    "leaflet.chinatmsproviders": "^3.0.4",
-    "leaflet.pm": "^2.2.0",
     "less-loader": "^4.1.0",
     "postcss-px2rem": "^0.3.0",
-    "prettier": "^1.8.1",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
   },
