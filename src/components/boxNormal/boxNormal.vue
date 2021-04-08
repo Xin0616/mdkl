@@ -77,6 +77,7 @@ export default {
         img{
           width: 100%;
           height: 100%;
+          object-fit: contain;
         }
       }
       .text{
@@ -100,13 +101,6 @@ export default {
     display: flex;
     align-items: center;
     .icon_con{
-      // width: 12px;
-      // height: 12px;
-      // border-radius: 50%;
-      // overflow: hidden;
-      // border:  1px solid  #1775f0;
-      // box-sizing: border-box;
-      // text-align: center;
       margin-top: 2px;
       margin-left: 10px;
     }

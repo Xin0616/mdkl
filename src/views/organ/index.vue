@@ -12,15 +12,21 @@
     <div class="seeAll">浏览所有机构</div>
     <div class="organ_content">
       <div class="title">机构类型</div>
-      <div class="three_box">
+      <div class="comps_box">
         <div v-for="(item,index) in threeBox" :key="index" >
-          <boxNormal v-if="index <= 3" :originObj="item"></boxNormal>
+          <boxNormal v-if="index <= 2" :originObj="item"></boxNormal>
+          <div class="other_box" v-else>
+            <boxLong :originObj="item"></boxLong>
+          </div>
         </div>
       </div>
       <div class="title">国家</div>
-      <div class="three_box">
+      <div class="comps_box">
         <div v-for="(item,index) in threeBox" :key="index" >
-          <boxNormal v-if="index <= 3" :originObj="item"></boxNormal>
+          <boxNormal v-if="index <= 2" :originObj="item"></boxNormal>
+          <div class="other_box" v-else>
+            <boxLong :originObj="item"></boxLong>
+          </div>
         </div>
       </div>
     </div>
@@ -30,13 +36,16 @@
 <script>
 import otherHeader from "@/components/otherHeader/otherHeader";
 import boxNormal from '@/components/boxNormal/boxNormal' 
+import boxLong from '@/components/boxLong/boxLong' 
+
 export default {
   name: "organ",
   data() {
     return {
       pageStatus: "organ",
       searchInput: "",
-      threeBox:[{
+      threeBox:[
+        {
         imgSrc: require('../../assets/image/z.jpg'),
         title: '作战指挥',
         other:[{
@@ -75,12 +84,27 @@ export default {
           imgSrc:require('../../assets/image/t.png'),
           text: '美国雷神公司'
         }]
+      },{
+        imgSrc:require('../../assets/image/z.jpg'),
+        title: '国防企业',
+        other:[{
+          imgSrc:require('../../assets/image/t.png'),
+          text: '洛克希德·马丁公司'
+        }]
+      },{
+        imgSrc:require('../../assets/image/z.jpg'),
+        title: '军事基地',
+        other:[{
+          imgSrc:require('../../assets/image/t.png'),
+          text: '美国能源部劳伦斯利弗莫尔国家实验室'
+        }]
       }]
     };
   },
   components: {
     otherHeader,
-    boxNormal
+    boxNormal,
+    boxLong
   },
   created() {},
   mounted() {},
@@ -133,9 +157,13 @@ export default {
       margin-top: 60px;
       margin-bottom: 30px;
     }
-    .three_box{
+    .comps_box{
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      .other_box{
+        margin-top: 18px
+      }
     }
   }
 }

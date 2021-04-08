@@ -80,9 +80,9 @@
 .content {
   width: 100%;
   min-height: 100vh;
-  background-image: url(../../assets/image/bg.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  // background-image: url(../../assets/image/bg.png);
+  // background-size: 100% 100%;
+  // background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
   padding: 90px 0 60px 0;
@@ -98,6 +98,7 @@
     border: solid 1px #eaeaeb;
     padding: 40px 0 40px 26px;
     box-sizing: border-box;
+    z-index: 98;
     .title{
       font-family: PingFangSC-Medium;
       font-size: 18px;
@@ -173,4 +174,11 @@
       color: #ffffff;
     }
   }
+}
+#mapCon{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

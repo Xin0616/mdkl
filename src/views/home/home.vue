@@ -32,6 +32,9 @@
         </div>
       </div>
     </div>
+    <div id="mapCon">
+      <mapCon></mapCon>
+    </div>
     <div class="content">
       <div style="position:relative">
         <div class="content_left" v-show="leftmenu">
@@ -67,6 +70,7 @@
 <script>
 import follow from '../../components/home/follow'
 import personal from '../../components/home/personal'
+import mapCon from '@/components/map/map'
 import {throttle} from '../../assets/js/tools.js'
 export default {
   name: "",
@@ -207,7 +211,8 @@ export default {
   },
   components: {
     follow,
-    personal
+    personal,
+    mapCon
   },
   created() {},
   mounted() {
