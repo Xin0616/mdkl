@@ -13,7 +13,14 @@
       </div>
     </div>
     <div class="more">
-      <div>查看更多机构</div>
+      <div>
+        <el-link
+          :underline="false"
+          class="linked"
+          href="/organ/more"
+          >查看更多机构</el-link
+        >
+      </div>
       <div class="icon_con el-icon-arrow-right"></div>
     </div>
   </div>
