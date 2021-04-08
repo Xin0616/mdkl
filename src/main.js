@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import 'amfe-flexible'
 
-
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './assets/css/style.css'

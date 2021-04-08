@@ -33,79 +33,55 @@
       </div>
     </div>
     <div class="content">
-      <div class="content_left">
-        <div class="title">筛选机构</div>
-        <el-tree
+      <div style="position:relative">
+        <div class="content_left" v-show="leftmenu">
+          <div class="title">筛选机构</div>
+          <el-tree
             :default-expand-all="true"
             :data="treeData"
             :props="defaultProps"
+            show-checkbox
+            style="margin-left:-5px"
           ></el-tree>
-        <div class="left_jt"><i class="el-icon-arrow-left"></i></div>
+        </div>
+        <div class="left_jt" @click="handleLeft">
+          <i :class="[leftmenu?'el-icon-arrow-left':'el-icon-arrow-right']"></i>
+        </div>
       </div>
-      <div class="content_right">
-        <div class="guanzhu">
-          <div class="title">关注动态</div>
-          <div class="member_con">
-            <div class="member_left">
-              <img src="../../assets/image/wx1.png" alt="" />
-              <div>
-                <div class="member_name">Edward S. Ammeen</div>
-                <div class="member_date">2021.03.01</div>
-              </div>
-            </div>
-            <div class="member_right">
-              in
-            </div>
-          </div>
-          <div class="text_conter">
-            <div class="text_3line">
-              Salesforce is the Customer Success Platform.Its social and mobile
-              cloud technologies inclu-ding its flagship sales and CRM...
-            </div>
-            <div class="bigPic"></div>
-            <div class="twoPic">
-              <div class="pic"></div>
-              <div class="pic picRight"></div>
-            </div>
-          </div>
+      <div style="position:relative">
+        <div class="content_right" v-show="rightmenu">
+          <follow v-if="rightStatus == 'follow'"></follow>
+          <personal v-if="rightStatus == 'personal'"></personal>
         </div>
-        <div class="other_dt">
-          <div class="title">其他动态</div>
-          <div class="text_conter">
-            <div class="bigPic"></div>
-            <div class="text_3line">
-              Salesforce is the Customer Success Platform.Its social and mobile
-              cloud technologies inclu-ding its flagship sales and CRM...
-            </div>
-            <div class="bigPic"></div>
-            <div class="text_3line">
-              Salesforce is the Customer Success Platform.Its social and mobile
-              cloud technologies inclu-ding its flagship sales and CRM...
-            </div>
-          </div>
+        <div class="right_jt" @click="handleRight">
+          <i :class="[rightmenu?'el-icon-arrow-right':'el-icon-arrow-left']"></i>
         </div>
-        <div class="right_jt"><i class="el-icon-arrow-right"></i></div>
         <div class="right_tabs">
-          <div class="tabs_item blueColor">关注动态</div>
-          <div class="tabs_item">个人关注</div>
+          <div class="tabs_item"  @click="changeShow('follow')" :class="[rightStatus == 'follow'?'blueColor':'']">关注动态</div>
+          <div class="tabs_item" @click="changeShow('personal')" :class="[rightStatus == 'personal'?'blueColor':'']">个人关注</div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import follow from '../../components/home/follow'
+import personal from '../../components/home/personal'
+import {throttle} from '../../assets/js/tools.js'
 export default {
   name: "",
   data() {
     return {
       searchInput: "",
       linkList: [
-        { textVal: "典型人物", path: "/" },
+        { textVal: "典型人物", path: "/personal" },
         { textVal: "重点机构", path: "/" },
         { textVal: "军事基地", path: "/" },
         { textVal: "武器装备", path: "/" },
         { textVal: "战略政策", path: "/" },
       ],
+      leftmenu: true,
+      rightmenu: true,
       treeData: [
         {
           label: "美国国防部",
@@ -131,7 +107,7 @@ export default {
                 },
                 {
                   id: 122,
-                  label: "国防部战俘/失踪人员办公室",
+                  label: "国防部失踪人员办公室",
                 },
                 {
                   id: 123,
@@ -165,7 +141,7 @@ export default {
               children: [
                 {
                   id: 131,
-                  label: "美国印度洋-太平洋司令部",
+                  label: "美国印度洋司令部",
                 },
                 {
                   id: 132,
@@ -218,35 +194,7 @@ export default {
                   label: "三级军种部门",
                 },
               ],
-            },
-            // {
-            //   label: "美国国防部部长办公厅",
-            //   id: 16,
-            //   children: [
-            //     {
-            //       id: 161,
-            //       label: "三级美国国防部部长办公厅",
-            //     },
-            //   ],
-            // },
-            // {
-            //   label: "美国参谋长联席会议",
-            //   id: 17,
-            //   children: [
-            //     {
-            //       id: 171,
-            //       label: "参谋长联席会议主席",
-            //     },
-            //     {
-            //       id: 172,
-            //       label: "参谋长联席会议副主席",
-            //     },
-            //     {
-            //       id: 173,
-            //       label: "高级士兵顾问",
-            //     },
-            //   ],
-            // },
+            }
           ],
         },
       ],
@@ -254,12 +202,28 @@ export default {
         children: "children",
         label: "label",
       },
+      rightStatus: 'follow'
     };
   },
-  components: {},
+  components: {
+    follow,
+    personal
+  },
   created() {},
-  mounted() {},
-  methods: {},
+  mounted() {
+    
+  },
+  methods: {
+    handleLeft: throttle(function(){
+      this.leftmenu = !this.leftmenu
+    },500),
+    handleRight: throttle(function(){
+      this.rightmenu = !this.rightmenu
+    },500),
+    changeShow(status){
+      this.rightStatus = status
+    }
+  },
 };
 </script>
 <style lang="less" scoped src="./home.less"></style>
